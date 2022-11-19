@@ -1,5 +1,4 @@
 {
-  "proxy": "https://api.imgur.com",
   "name": "imgur-image-gallery",
   "version": "0.1.0",
   "private": true,
