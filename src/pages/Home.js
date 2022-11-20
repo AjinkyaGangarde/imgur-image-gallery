@@ -22,8 +22,12 @@ export const Home = () => {
         fetchMockData();
     }, [])
 
-    return <div className='container mx-auto my-20 px-8'>
-           <Filters/> 
-           <Imagegallery isLoading={isLoading}  data={gallery} />
-      </div>;
+    return  <>
+                <Filters/>
+                <div className='fixed top-44 w-full'>
+                    <div className='container mx-auto my-8 px-8'>
+                        <Imagegallery isLoading={isLoading}  data={gallery} />
+                    </div>
+                </div>
+            </>;
 }

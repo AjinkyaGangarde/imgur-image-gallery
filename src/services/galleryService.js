@@ -1,4 +1,4 @@
-const AUTH='Client-ID {{Client-ID}}'
+const AUTH='Client-ID 04342db36851ecc'
 const BASE_URL = 'https://api.imgur.com';
 
 export const getGalleryData = async () =>{    
@@ -19,7 +19,7 @@ export const getGalleryData = async () =>{
 }
 
 export const filterAndFormatData = (data) =>{
-    const filteredRecord = {...data};//TODO : filter logic to filterout images only 
+    const filteredRecord = {...data}; 
     const {id,title, description,images} = filteredRecord;
     return {
         id,title, description,images
