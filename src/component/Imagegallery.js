@@ -2,7 +2,6 @@ import React from 'react'
 import { LoadingSpinner } from './LoadingSpinner';
 
 export const Imagegallery = ({isLoading , data}) => {
-    console.log("====>",data);
   return (
         <section class="text-gray-700 ">
                 <div class="container px-5 py-2 mx-auto">

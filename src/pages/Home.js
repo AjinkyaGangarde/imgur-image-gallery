@@ -12,6 +12,8 @@ export const Home = () => {
     
     useEffect(() => {
         setIsLoading(true);
+
+        //TODO: So here for now we have fetched the mocked data will replace this with Actal API once api issue got resolved
         const fetchMockData = async() =>{
             const timer = setTimeout(() => {
                 dispatch({type:'SET_GALLERY', payload : response.data});
@@ -23,7 +25,7 @@ export const Home = () => {
     }, [])
 
     return  <>
-                <Filters/>
+                <Filters />
                 <div className='fixed top-44 w-full'>
                     <div className='container mx-auto my-8 px-8'>
                         <Imagegallery isLoading={isLoading}  data={gallery} />

@@ -1,4 +1,4 @@
-const AUTH='Client-ID 04342db36851ecc'
+const AUTH='Client-ID {{Client-ID}}'
 const BASE_URL = 'https://api.imgur.com';
 
 export const getGalleryData = async () =>{    
