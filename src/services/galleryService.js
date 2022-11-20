@@ -1,12 +1,8 @@
-import { mockResponse } from "./mockResponse";
-
-const AUTH='Client-ID 04342db36851ecc'
-//const BASE_URL = 'https://api.imgur.com/3/gallery/top/viral/day/1';
+const AUTH='Client-ID {{Client-ID}}'
+const BASE_URL = 'https://api.imgur.com';
 
 export const getGalleryData = async () =>{    
     var myHeaders = new Headers();
-
-    console.log("==>",AUTH)
     myHeaders.append("Authorization", AUTH);
 
     var requestOptions = {
@@ -15,28 +11,26 @@ export const getGalleryData = async () =>{
     redirect: 'follow'
     };
 
-    const res = await fetch("https://api.imgur.com/3/gallery/top/viral/day/1?showViral=true&mature=true&album_previews=true", requestOptions)
-    debugger;
-    console.log(res); 
-    // .then(response => response.text())
-    // .then(result => console.log(result))
-    // .catch(error => console.log(error));
+    fetch(`${BASE_URL}/3/gallery/top/viral/day/1?showViral=true&mature=true&album_previews=true`, requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log(error));
     
 }
 
-const formattedData = (data) =>{
-    debugger;
+export const filterAndFormatData = (data) =>{
+    const filteredRecord = {...data};//TODO : filter logic to filterout images only 
+    const {id,title, description,images} = filteredRecord;
     return {
-        ...data
+        id,title, description,images
     };
 }
 
 export const getFormattedGalleryData = async(searchParams) =>{
     const formattedWeatherData = await getGalleryData(searchParams)
-                                        .then(formattedData)
+                                        .then(filterAndFormatData)
                                         .catch((e)=>{
-                                            debugger
-                                            console.log("Error :  Failed to load the data")
+                                            console.log("Error : ",e);
                                         })
     return formattedWeatherData;
 }

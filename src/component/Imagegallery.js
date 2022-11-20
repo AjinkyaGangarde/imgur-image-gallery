@@ -1,13 +1,18 @@
 import React from 'react'
+import { LoadingSpinner } from './LoadingSpinner';
 
-export const Imagegallery = ({data}) => {
+export const Imagegallery = ({isLoading , data}) => {
     console.log("====>",data);
   return (
         <section class="text-gray-700 ">
                 <div class="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
                     <div class="h-4/6 flex flex-wrap -m-1 md:-m-2">
+                        <>{
+                            isLoading && <LoadingSpinner />
+                        }</>
+                        <>
                         {
-                            data && data?.map(({id, title, images})=> {
+                            !isLoading && data && data?.map(({id, title, images})=> {
                                 
                                     return (<div key={id} className="flex flex-wrap w-1/3">
                                         <div className="w-full p-1 md:p-2">
@@ -23,6 +28,7 @@ export const Imagegallery = ({data}) => {
                                     </div>)
                             })
                         }
+                        </>
                     </div>
                 </div>
             </section>
