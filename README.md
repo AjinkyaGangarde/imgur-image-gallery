@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+## Steps for set up
+    1. Clone the repo in your local 
+    2. update your imgur client id at below filepath in case you don't have one create one by using this Path [ https://apidocs.imgur.com/#intro ] (https://apidocs.imgur.com/#intro)
+    
+        Path to update 'imgur-image-gallery\src\services'
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
