@@ -3,9 +3,9 @@ import { LoadingSpinner } from './LoadingSpinner';
 
 export const Imagegallery = ({isLoading , data}) => {
   return (
-        <section class="text-gray-700 ">
-                <div class="container px-5 py-2 mx-auto">
-                    <div class="h-4/6 grid grid-flow-row-dense grid-cols-3">
+        <section className="text-gray-700 ">
+                <div className="container px-5 py-2 mx-auto">
+                    <div className="h-4/6 grid grid-flow-row-dense grid-cols-3">
                         <>{
                             isLoading && <LoadingSpinner />
                         }</>

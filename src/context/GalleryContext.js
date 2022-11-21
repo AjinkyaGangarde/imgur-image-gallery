@@ -4,8 +4,14 @@ export const GalleryContext = createContext();
 
 export const galleryReducer = (state, action) =>{
     switch (action.type) {
+        case 'SET_FILTERS':
+            return{
+                ...state,
+                filters: action.payload,
+            };
         case 'SET_GALLERY':
             return{
+                ...state,
                 gallery : action.payload
             }
         default:
@@ -14,7 +20,14 @@ export const galleryReducer = (state, action) =>{
 }
 
 const gallaryInitialState = {
-    gallery: []
+    filters : {
+        Section: 'hot',
+        Sort:'viral',
+        Window:'day',
+        Page: 1
+    },
+    gallery: [],
+
 }
 
 export const GalleryContextProvider = ({children}) =>{
