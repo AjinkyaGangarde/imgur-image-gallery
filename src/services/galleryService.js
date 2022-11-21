@@ -3,7 +3,7 @@ import axios from 'axios';
 const AUTH='Client-ID {{Client ID}}'
 const BASE_URL = 'https://api.imgur.com';
 
-export const getGalleryData = () =>{    
+export const getGalleryData = ({Section= 'hot',Sort='viral',Window='day',Page=1}) =>{    
     var myHeaders = new Headers();
     myHeaders.append("Authorization", AUTH);
     var formdata = new FormData();
@@ -16,7 +16,7 @@ export const getGalleryData = () =>{
 
     //fetch(`${BASE_URL}/3/gallery/top/viral/day/1?showViral=true&mature=true&album_previews=true`, requestOptions)
     axios({
-        url:`${BASE_URL}/3/gallery/top/viral/day/1?showViral=true&mature=true&album_previews=true`,
+        url:`${BASE_URL}/3/gallery/${Section}/${Sort}/${Window}/${Page}?showViral=true&mature=true&album_previews=true`,
         ...requestOptions
     }).then(response =>{debugger; console.log(response); response.text()})
         .then(result => console.log(result))
